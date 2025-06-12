@@ -71,6 +71,45 @@
                         <input type="file" id="avatar" name="avatar" accept="image/*">
                     </div>
 
+                    <button type="submit" class="btn btn-success">💾Save Contact</button>
+                    <button type="button" class="btn btn-secondary" onclick="showContact()">Cancel</button>
+
+                </form>
+            </div>
+            <!--Edit Contact Page-->
+            <div id="editContactPage" class="page">
+                <button class="btn btn-secondary back-btn"onclick="showContact()">← Back to Contacts</button>
+
+                <h2>Edit New Contact</h2>
+
+                <form id="editContactForm" onsubmit="updateContact(event)">
+                    <input type="hidden" id="editContactId">
+
+
+                    <div class="form-group">
+                        <label for="edit-first-name">First Name:</label>
+                        <input type="text" id="editFirstName" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-last-name">Last Name:</label>
+                        <input type="text" id="editLastName" name="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-mobile">Mobile:</label>
+                        <input type="text" id="editMobile" name="mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email:</label>
+                        <input type="text" id="editEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAvatar">Profile Picture (Optional):</label>
+                        <input type="file" id="editAvatar" name="avatar" accept="image/*">
+                    </div>
+
+                    <button type="submit" class="btn btn-success">💾Update Contact</button>
+                    <button type="button" class="btn btn-secondary" onclick="showContact()">Cancel</button>
+
                 </form>
             </div>
         </div>
