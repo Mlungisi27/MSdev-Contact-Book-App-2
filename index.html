@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Book App by sims</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📲 MSdev : Contact Book App</h1>
+            <p>Manage your contacts with API.</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <!--API Setup page-->
+        <div id="setupPage" class="page-active">
+            <div class="api-setup">
+                <h3>🔑 API Key Required</h3>
+                <p>To use this app, please obtain an API key from the service provider.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="apiKeyInput">Enter your API key (Hint : Email Address)</label>
+                <input type="email" id="apiKeyInput" placeholder="your-email@example,com">
+            </div>
+
+            <button class="btn" onclick="setupApiKey()">🚀 Start using Contact Book></button>
+        </div>
+
+        <!--Main Contacts-->
+        <div id="contactsPage" class="page">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap;gap: 10px">
+
+                <h2>Your Contacts</h2>
+                <div>
+                    <button class="btn btn-secondary" onclick="refreshContacts()">🔁Refresh</button>
+                    <button class="btn btn-success" onclick="showAddContact()">➕Add Contacts</button>
+                </div>
+            </div>
+            <div id="contactsList">
+                 <div class="loading">Loading Contacts...</div>
+            </div>
+            <!--Add Contact Page-->
+            <div id="addContactPage" class="page">
+                <button class="btn btn-secondary back-btn"onclick="showContact()">← Back to Contacts</button>
+
+                <h2>Add New Contact</h2>
+
+                <form id="addContactForm" onsubmit="addContact(event)">
+                    <div class="form-group">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="firstName" name="firstname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:</label>
+                        <input type="text" id="lastName" name="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile:</label>
+                        <input type="text" id="mobile" name="mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">Profile Picture (Optional):</label>
+                        <input type="file" id="avatar" name="avatar" accept="image/*">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
