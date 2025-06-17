@@ -1,0 +1,336 @@
+/* Global Styles */
+:root {
+    --primary-color: #163c64; /* iOS Blue */
+    --secondary-color: #d2d2e5; /* Light Gray for backgrounds/elements */
+    --success-color: #0f4e1f; /* iOS Green */
+    --danger-color: #8f1009; /* iOS Red */
+    --text-color-primary: #1C1C1E; /* Near Black */
+    --text-color-secondary: #8A8A8E; /* Medium Gray */
+    --background-color: #F2F2F7; /* System Gray 6 */
+    --card-background-color: #FFFFFF; /* White */
+    --border-color: #D1D1D6; /* System Gray 4 */
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 12px;
+    --input-height: 48px;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 600px; /* Typical width for centered content on larger screens, full width on mobile */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--card-background-color);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 15px;
+        background-color: var(--background-color); /* Full screen background on mobile */
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--card-background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.header h1 {
+    font-size: 28px;
+    color: var(--text-color-primary);
+    margin: 0 0 5px 0;
+}
+
+.header p {
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+/* Page Visibility */
+.page {
+    display: none;
+    padding: 20px;
+    background-color: var(--card-background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .page {
+        margin-left: -15px; /* Extend to screen edges on mobile */
+        margin-right: -15px;
+        border-radius: 0; /* No border radius for full-width pages on mobile */
+        box-shadow: none;
+    }
+    .header {
+        margin-left: -15px;
+        margin-right: -15px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* API Setup Page */
+.api-setup {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.api-setup h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.api-setup p {
+    color: var(--text-color-secondary);
+    font-size: 15px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: var(--text-color-primary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 0 15px;
+    height: var(--input-height);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #F9F9F9; /* Slightly off-white for input fields */
+}
+
+.form-group input[type="file"] {
+    padding: 10px 15px; /* Adjust padding for file input */
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 0 20px;
+    height: var(--input-height);
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: var(--primary-color);
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Specific button adjustments */
+#contactsPage .btn, #addContactPage .btn, #editContactPage .btn {
+    width: auto; /* Allow buttons to size to content where appropriate */
+    min-width: 100px;
+}
+
+/* Contacts Page */
+#contactsPage h2 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 30px;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+}
+
+/* Contact Card Styling */
+.contacts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-card {
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.contact-card:hover {
+    background-color: #f9f9f9;
+}
+
+.contact-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--secondary-color);
+}
+
+.contact-info {
+    flex-grow: 1;
+}
+
+.contact-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color-primary);
+    margin-bottom: 2px;
+}
+
+.contact-details p {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-details p strong {
+    color: var(--text-color-secondary);
+    font-weight: normal; /* Keep it subtle */
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons on smaller screens if needed */
+    gap: 8px;
+}
+
+.contact-actions .btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    height: auto;
+    min-width: 70px; /* Ensure buttons have some width */
+}
+
+/* Add/Edit Contact Page */
+#addContactPage h2, #editContactPage h2 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.back-btn {
+    margin-bottom: 20px !important; /* Ensure it has space */
+    width: auto !important;
+    padding: 10px 15px !important;
+    height: auto !important;
+}
+
+#editAvatarImage {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#editAvatarImage img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+}
+
+/* Form buttons in Add/Edit pages */
+#addContactForm .btn, #editContactForm .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#addContactForm .btn-secondary, #editContactForm .btn-secondary {
+    margin-top: 5px; /* Less margin for cancel button */
+}
+
+/* Responsive adjustments for contact cards */
+@media (max-width: 480px) {
+    .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .contact-actions {
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .contact-actions .btn {
+        flex-grow: 1; /* Make buttons take equal space if desired */
+    }
+}
